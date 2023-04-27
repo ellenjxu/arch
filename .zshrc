@@ -114,6 +114,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+export EDITOR='vim'
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -121,4 +123,5 @@ source $ZSH/oh-my-zsh.sh
 
 # For git gpg
 export GPG_TTY=$(tty)
-export EDITOR='vim'
+# don't prompt for ssh key on git push
+[ -z "$SSH_AUTH_SOCK" ] && eval "$(ssh-agent -s)" && ssh-add ~/.ssh/id_ed25519
