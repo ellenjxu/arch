@@ -123,6 +123,4 @@ export EDITOR='vim'
 
 # For git gpg
 export GPG_TTY=$(tty)
-# don't have to enter ssh key every git push
-[ -z "$SSH_AUTH_SOCK" ] && eval "$(ssh-agent -s)" > /dev/null 2>&1 # start ssh-agent if not started
 
