@@ -124,3 +124,5 @@ export EDITOR='vim'
 # For git gpg
 export GPG_TTY=$(tty)
 
+# enable miniconda
+[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
