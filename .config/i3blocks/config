@@ -1,0 +1,106 @@
+align=center
+separator=false
+color=#f8f8f2
+separator_block_width=15
+markup=pango
+
+[battery]
+command=cat /sys/class/power_supply/BAT0/capacity
+interval=2
+label=<span color="#ff5555"> </span>
+border=#ff5555
+border_top=1
+border_right=0
+border_bottom=0
+border_left=0
+
+[wifi]
+command=iwgetid -r | tr '\n' ' ' && grep $(iwgetid -m | awk '{ printf "%s", $1 }') /proc/net/wireless | awk '{ printf "%i%\n", int($3 * 100 / 70) }'
+instance=wlp11s0f3u1
+interval=5
+label=<span color="#ff79c6"> </span>
+border=#ff79c6
+border_top=1
+border_right=0
+border_bottom=0
+border_left=0
+
+[ip]
+command=hostname -i | awk '{ print $1 }'
+interval=once
+label=<span color="#ffb86c"> </span>
+border=#ffb86c
+border_top=1
+border_right=0
+border_bottom=0
+border_left=0
+
+[root]
+command=df -h / | awk 'FNR==2 { gsub(/[A-Za-z]/, ""); printf "%i<span color=\"#f1fa8c\">GiB</span>\n", $4 }'
+interval=3
+label=<span color="#f1fa8c"> </span>
+border=#f1fa8c
+border_top=1
+border_right=0
+border_bottom=0
+border_left=0
+
+[memory]
+command=free --giga | awk 'FNR==2{ printf "%i<span color=\"#91E78B\">GiB</span>\n", $7 }'
+interval=2
+label=<span color="#91E78B"> </span>
+border=#91E78B
+border_top=1
+border_right=0
+border_bottom=0
+border_left=0
+
+[volume]
+command=pulseaudio-ctl full-status | awk '{ printf "%i<span color=\"#bd93f9\">%</span>\n", $1 }'
+interval=1
+label=<span color="#bd93f9"> </span>
+border=#bd93f9
+border_top=1
+border_right=0
+border_bottom=0
+border_left=0
+
+[time_pst]
+command=TZ=":US/Pacific" date '+%I : %M %Z' | awk '{ printf "%s<span color=\"#8be9fd\">%s</span>%s\n", $1, $2, $3 }'
+interval=1
+label=<span color="#8be9fd"> </span>
+border=#8be9fd
+border_top=1
+border_right=0
+border_bottom=0
+border_left=0
+
+[gpu_stats]
+command=nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits | awk '{ printf "%02i<span color=\"#ffb86c\">%</span>", $0}' && nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits | awk '{ printf " %i<span color=\"#ffb86c\">°C</span>\n", $0}'
+label=<span color="#ff79c6"><b>GPU: </b></span>
+interval=5
+border=#ff79c6
+border_top=1
+border_right=0
+border_bottom=0
+border_left=0
+
+[cpu_stats]
+command=sar -u 1 1 | awk 'FNR == 5 { printf "%04.1f<span color=\"#ff5555\">%</span>", (100 - $8) }' && paste <(cat /sys/class/thermal/thermal_zone*/type) <(cat /sys/class/thermal/thermal_zone*/temp) | awk '{ if (NR == 1) { gsub(/[+°C]/, ""); printf " %.0f<span color=\"#ff5555\">°C</span>\n", $2/1000 } }'
+interval=5
+label=<span color="#ff5555"><b>CPU: </b></span>
+border=#ff5555
+border_top=1
+border_right=0
+border_bottom=0
+border_left=0
+
+[date]
+command=date '+%Y  %B %d %A。' | awk '{ printf "%s<span color=\"#B2BEB5\"> %s %s </span>%s<span color=\"#B2BEB5\">%s %s</span>\n", $1, $2, $3, $4, $5, $6 }'
+interval=60
+label=<span color="#B2BEB5"> </span>
+border=#B2BEB5
+border_top=1
+border_right=0
+border_bottom=0
+border_left=0
