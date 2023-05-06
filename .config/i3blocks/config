@@ -4,6 +4,10 @@ color=#f8f8f2
 separator_block_width=15
 markup=pango
 
+[i3timer]
+command=~/go/bin/i3-timer -alarm-command="notify-send 'i3-timer' 'Alarm Elapsed!'; play /usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga"
+interval=10
+
 [battery]
 command=cat /sys/class/power_supply/BAT0/capacity
 interval=2
@@ -55,16 +59,6 @@ border_right=0
 border_bottom=0
 border_left=0
 
-[volume]
-command=pulseaudio-ctl full-status | awk '{ printf "%i<span color=\"#bd93f9\">%</span>\n", $1 }'
-interval=1
-label=<span color="#bd93f9"> </span>
-border=#bd93f9
-border_top=1
-border_right=0
-border_bottom=0
-border_left=0
-
 [time_pst]
 command=TZ=":US/Pacific" date '+%I : %M %Z' | awk '{ printf "%s<span color=\"#8be9fd\">%s</span>%s\n", $1, $2, $3 }'
 interval=1
@@ -75,11 +69,11 @@ border_right=0
 border_bottom=0
 border_left=0
 
-[gpu_stats]
-command=nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits | awk '{ printf "%02i<span color=\"#ffb86c\">%</span>", $0}' && nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits | awk '{ printf " %i<span color=\"#ffb86c\">°C</span>\n", $0}'
-label=<span color="#ff79c6"><b>GPU: </b></span>
-interval=5
-border=#ff79c6
+[volume]
+command=pulseaudio-ctl full-status | awk '{ printf "%i<span color=\"#bd93f9\">%</span>\n", $1 }'
+interval=1
+label=<span color="#bd93f9"> </span>
+border=#bd93f9
 border_top=1
 border_right=0
 border_bottom=0
@@ -90,6 +84,16 @@ command=sar -u 1 1 | awk 'FNR == 5 { printf "%04.1f<span color=\"#ff5555\">%</sp
 interval=5
 label=<span color="#ff5555"><b>CPU: </b></span>
 border=#ff5555
+border_top=1
+border_right=0
+border_bottom=0
+border_left=0
+
+[gpu_stats]
+command=nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits | awk '{ printf "%02i<span color=\"#ffb86c\">%</span>", $0}' && nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits | awk '{ printf " %i<span color=\"#ffb86c\">°C</span>\n", $0}'
+label=<span color="#ff79c6"><b>GPU: </b></span>
+interval=5
+border=#ff79c6
 border_top=1
 border_right=0
 border_bottom=0
