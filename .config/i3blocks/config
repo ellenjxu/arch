@@ -6,11 +6,11 @@ markup=pango
 
 [i3timer]
 command=~/go/bin/i3-timer -alarm-command="notify-send 'i3-timer' 'Alarm Elapsed!'; play /usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga"
-interval=10
+interval=5
 
 [battery]
 command=cat /sys/class/power_supply/BAT0/capacity
-interval=2
+interval=10
 label=<span color="#ff5555"> </span>
 border=#ff5555
 border_top=1
@@ -21,7 +21,7 @@ border_left=0
 [wifi]
 command=iwgetid -r | tr '\n' ' ' && grep $(iwgetid -m | awk '{ printf "%s", $1 }') /proc/net/wireless | awk '{ printf "%i%\n", int($3 * 100 / 70) }'
 instance=wlp11s0f3u1
-interval=5
+interval=10
 label=<span color="#ff79c6"> </span>
 border=#ff79c6
 border_top=1
@@ -30,7 +30,7 @@ border_bottom=0
 border_left=0
 
 [ip]
-command=hostname -i | awk '{ print $1 }'
+command=ip addr show wlo1 | awk '$1 == "inet" {gsub(/\/.*$/, "", $2); print $2; exit}'
 interval=once
 label=<span color="#ffb86c"> </span>
 border=#ffb86c
@@ -81,7 +81,7 @@ border_left=0
 
 [cpu_stats]
 command=sar -u 1 1 | awk 'FNR == 5 { printf "%04.1f<span color=\"#ff5555\">%</span>", (100 - $8) }' && paste <(cat /sys/class/thermal/thermal_zone*/type) <(cat /sys/class/thermal/thermal_zone*/temp) | awk '{ if (NR == 1) { gsub(/[+°C]/, ""); printf " %.0f<span color=\"#ff5555\">°C</span>\n", $2/1000 } }'
-interval=5
+interval=10
 label=<span color="#ff5555"><b>CPU: </b></span>
 border=#ff5555
 border_top=1
@@ -92,7 +92,7 @@ border_left=0
 [gpu_stats]
 command=nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits | awk '{ printf "%02i<span color=\"#ffb86c\">%</span>", $0}' && nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits | awk '{ printf " %i<span color=\"#ffb86c\">°C</span>\n", $0}'
 label=<span color="#ff79c6"><b>GPU: </b></span>
-interval=5
+interval=10
 border=#ff79c6
 border_top=1
 border_right=0
