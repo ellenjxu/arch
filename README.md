@@ -22,15 +22,12 @@ FIRST STAGE: BIOS/UEFI
   - Also gives basic instructions for peripheries (hence "input-output") and microprocessor
   - Early booting (UNIVAC) used punch cards, which would load into memory, then load a larger program (chain loading)
 
-Really neat boot sequence diagram: https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Flow-diagram-computer-booting-sequences.svg/800px-Flow-diagram-computer-booting-sequences.svg.png
-Arch boot sequence: https://wiki.archlinux.org/title/Arch_boot_process
-
 SECOND STAGE: GNU GRUB
 - Bootloader looks for kernels on hard drive, loads into RAM, and eventually hands over control to OS
   - Kernel = bridge between software and hardware (ex. manage CPU, complete control over hardware) 
 - GRUB = GRand Unified Bootloader
 
-GRUB on GPT-partition: https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/GNU_GRUB_on_GPT_partitioned_hard_disk_drives.svg/495px-GNU_GRUB_on_GPT_partitioned_hard_disk_drives.svg.png
+![GRUB on GPT-partition](https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/GNU_GRUB_on_GPT_partitioned_hard_disk_drives.svg/495px-GNU_GRUB_on_GPT_partitioned_hard_disk_drives.svg.png)
 
 BIOS is old (only 16-bit, 1MB memory) so UEFI was created to replace it 
 BIOS/MBR -> UEFI/GPT
