@@ -97,9 +97,10 @@ xorg (display server) + gnome (desktop/graphical interface) = GUI
 
 env:
 - kde plasma (greater customizability) + wayland (had to add drm to grub file for nvidia)
-- zsh, ohmyzsh, powerlevel10k theme (faster with git; use lean not pure!)
+- konsole, zsh, ohmyzsh, powerlevel10k theme (faster with git; use lean not pure!)
 - i3 for tiling manager (https://github.com/heckelson/i3-and-kde-plasma)
 - deep learning: `sudo pacman -S nvidia nvidia-utils cuda cudnn`
+- misc: flameshot (screen capture), feh (image viewer/bg)
 
 ---
 
