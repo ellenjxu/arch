@@ -5,12 +5,12 @@ separator_block_width=15
 markup=pango
 
 [i3timer]
-command=~/go/bin/i3-timer -alarm-command="notify-send 'i3-timer' 'Alarm Elapsed!'; play /usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga"
-interval=5
+command=~/go/bin/i3-timer -colors=true -duration=10 -alarm-command="notify-send 'i3-timer' 'Alarm Elapsed!'; play /usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga"
+interval=1
 
 [battery]
 command=cat /sys/class/power_supply/BAT0/capacity
-interval=10
+interval=60
 label=<span color="#ff5555"> </span>
 border=#ff5555
 border_top=1
