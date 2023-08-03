@@ -90,17 +90,31 @@ pacman = PACkage MANager!
 nmtui = network manager UI, connect to wifi (MAKE SURE TO ENABLE SERVICE)
 dhcpd = get IP address
 intel-ucode = microcode
-xorg (display server) + gnome (desktop/graphical interface) = GUI
+xorg (display server) + kde plasma + wayland (desktop/graphical interface, add drm to grub file for nvidia https://community.kde.org/Plasma/Wayland/Nvidia)
 + some other Intel video cards, audio, etc
+
+Update 8/3/23 (allocate full disk to arch):
+
+Unlike dual boot, we can delete all of the partitions and completely reinstall EFI too
+
+    Mount EFI to /boot/efi is better than /boot!
+
+Make sure mkinitcpio -P runs properly (can find linux image), and grub generation can too (initially was in /boot/efi instead of /boot, moved files over)
+Xorg + plasma
 
 ---
 
 env:
-- kde plasma (greater customizability) + wayland (had to add drm to grub file for nvidia)
 - konsole, zsh, ohmyzsh, powerlevel10k theme (faster with git; use lean not pure!)
 - i3 for tiling manager (https://github.com/heckelson/i3-and-kde-plasma)
 - deep learning: `sudo pacman -S nvidia nvidia-utils cuda cudnn`
 - misc: flameshot (screen capture), feh (image viewer/bg)
+
+---
+
+additional resources:
+https://gist.github.com/Pamblam/99ef7b1f3c4f0f1526692ee4ea07d957
+https://www.freecodecamp.org/news/how-to-install-arch-linux/#how-to-generate-the-fstab-file
 
 ---
 
