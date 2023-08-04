@@ -20,7 +20,6 @@ border_left=0
 
 [wifi]
 command=iwgetid -r | tr '\n' ' ' && grep $(iwgetid -m | awk '{ printf "%s", $1 }') /proc/net/wireless | awk '{ printf "%i%\n", int($3 * 100 / 70) }'
-instance=wlp11s0f3u1
 interval=10
 label=<span color="#ff79c6"> </span>
 border=#ff79c6
@@ -30,7 +29,7 @@ border_bottom=0
 border_left=0
 
 [ip]
-command=ip addr show wlo1 | awk '$1 == "inet" {gsub(/\/.*$/, "", $2); print $2; exit}'
+command=ip addr show wlp0s20f3 | awk '$1 == "inet" {gsub(/\/.*$/, "", $2); print $2; exit}'
 interval=once
 label=<span color="#ffb86c"> </span>
 border=#ffb86c
@@ -52,15 +51,15 @@ border_left=0
 [memory]
 command=free --giga | awk 'FNR==2{ printf "%i<span color=\"#91E78B\">GiB</span>\n", $7 }'
 interval=2
-label=<span color="#91E78B"> </span>
+label=<span color="#91E78B">💿 </span>
 border=#91E78B
 border_top=1
 border_right=0
 border_bottom=0
 border_left=0
 
-[time_pst]
-command=TZ=":US/Pacific" date '+%I : %M %Z' | awk '{ printf "%s<span color=\"#8be9fd\">%s</span>%s\n", $1, $2, $3 }'
+[time]
+command=timedatectl | awk '/Local time/ {print substr($5, 1, 5)}'
 interval=1
 label=<span color="#8be9fd"> </span>
 border=#8be9fd
