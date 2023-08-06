@@ -4,9 +4,9 @@ color=#f8f8f2
 separator_block_width=15
 markup=pango
 
-[i3timer]
-command=~/go/bin/i3-timer -colors=true -duration=10 -alarm-command="notify-send 'i3-timer' 'Alarm Elapsed!'; play /usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga"
-interval=1
+# [i3timer]
+# command=~/go/bin/i3-timer -colors=true -duration=10 -alarm-command="notify-send 'i3-timer' 'Alarm Elapsed!'; play /usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga"
+# interval=1
 
 [battery]
 command=cat /sys/class/power_supply/BAT0/capacity
@@ -20,7 +20,7 @@ border_left=0
 
 [wifi]
 command=iwgetid -r | tr '\n' ' ' && grep $(iwgetid -m | awk '{ printf "%s", $1 }') /proc/net/wireless | awk '{ printf "%i%\n", int($3 * 100 / 70) }'
-interval=10
+interval=60
 label=<span color="#ff79c6"> </span>
 border=#ff79c6
 border_top=1
@@ -40,7 +40,7 @@ border_left=0
 
 [root]
 command=df -h / | awk 'FNR==2 { gsub(/[A-Za-z]/, ""); printf "%i<span color=\"#f1fa8c\">GiB</span>\n", $4 }'
-interval=3
+interval=once
 label=<span color="#f1fa8c"> </span>
 border=#f1fa8c
 border_top=1
@@ -50,7 +50,7 @@ border_left=0
 
 [memory]
 command=free --giga | awk 'FNR==2{ printf "%i<span color=\"#91E78B\">GiB</span>\n", $7 }'
-interval=2
+interval=60
 label=<span color="#91E78B">💿 </span>
 border=#91E78B
 border_top=1
@@ -79,7 +79,7 @@ border_bottom=0
 border_left=0
 
 [cpu_stats]
-command=sar -u 1 1 | awk 'FNR == 5 { printf "%04.1f<span color=\"#ff5555\">%</span>", (100 - $8) }' && paste <(cat /sys/class/thermal/thermal_zone*/type) <(cat /sys/class/thermal/thermal_zone*/temp) | awk '{ if (NR == 1) { gsub(/[+°C]/, ""); printf " %.0f<span color=\"#ff5555\">°C</span>\n", $2/1000 } }'
+command=sar -u 1 1 | awk 'FNR == 5 { printf "%04.1f<span color=\"#ff5555\">%</span>", (100 - $8) }' && paste <(cat /sys/class/thermal/thermal_zone*/type) <(cat /sys/class/thermal/thermal_zone*/temp) | awk '{ if ($1 ~ /x86_pkg_temp/) { gsub(/[+°C]/, ""); printf " %.0f<span color=\"#ff5555\">°C</span>\n", $2/1000 } }'
 interval=10
 label=<span color="#ff5555"><b>CPU: </b></span>
 border=#ff5555
