@@ -55,6 +55,9 @@ bindsym $mod+Return exec konsole
 exec --no-startup-id flameshot
 bindsym --release $mod+Shift+s exec flameshot gui
 
+# languages
+exec --no-startup-id fcitx -d
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
