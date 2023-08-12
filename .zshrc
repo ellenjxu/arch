@@ -122,7 +122,7 @@ export EDITOR='vim'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # For git gpg
-export GPG_TTY=$(tty)
+export GPG_TTY=$TTY
 
 # enable miniconda
 [ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
