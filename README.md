@@ -108,7 +108,7 @@ env:
 - konsole, zsh, ohmyzsh, powerlevel10k theme (faster with git; use lean not pure!)
 - i3 for tiling manager (https://github.com/heckelson/i3-and-kde-plasma USE OPTION 2)
 - deep learning: `sudo pacman -S nvidia nvidia-utils cuda cudnn`
-- misc: flameshot (screen capture), feh (image viewer/bg), gvim (for copypaste vim)
+- misc: flameshot (screen capture, make sure [dunst is installed](https://github.com/flameshot-org/flameshot/issues/635#issuecomment-554397289), feh (image viewer/bg), gvim (for copypaste vim)
 
 ---
 
