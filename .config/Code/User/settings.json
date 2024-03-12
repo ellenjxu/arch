@@ -1,0 +1,79 @@
+{
+	"workbench.iconTheme": "vscode-icons",
+	"editor.fontFamily": "Fira Code",
+	"editor.fontLigatures": true,
+	"editor.formatOnPaste": true,
+	"editor.formatOnSave": true,
+	"editor.tabSize": 4,
+	"workbench.editor.highlightModifiedTabs": true,
+	"workbench.colorCustomizations": {
+		"editor.background": "#232627",
+		"sideBar.background": "#232627", // #282c34
+		"activityBar.background": "#232627",
+		"terminalCursor.background": "#fff",
+		"terminalCursor.foreground": "#fff",
+		"editorCursor.background": "#fff",
+		"editorCursor.foreground": "#fff"
+	},
+	"editor.cursorStyle": "block",
+	"editor.cursorBlinking": "solid",
+	"files.trimFinalNewlines": true,
+	"editor.acceptSuggestionOnEnter": "off",
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"prettier.useTabs": true,
+	"editor.linkedEditing": true,
+	"editor.suggestSelection": "first",
+	"vsicons.dontShowNewVersionMessage": true,
+	"workbench.editorAssociations": {
+		"*.ipynb": "jupyter-notebook"
+	},
+	"[shellscript]": {
+		"files.eol": "\n"
+	},
+	"liveServer.settings.donotShowInfoMsg": true,
+	"prettier.bracketSpacing": false,
+	"notebook.cellToolbarLocation": {
+		"default": "right",
+		"jupyter-notebook": "left"
+	},
+	"editor.inlineSuggest.enabled": true,
+	"explorer.confirmDelete": false,
+	"explorer.confirmDragAndDrop": false,
+	"code-runner.runInTerminal": true,
+	"github.copilot.enable": {
+		"*": true,
+		"plaintext": true,
+		"markdown": false,
+		"scminput": false,
+		"yaml": true,
+		"cpp": true,
+		"python": true,
+		"c": true
+	},
+	"terminal.integrated.enableMultiLinePasteWarning": false,
+	"security.workspace.trust.untrustedFiles": "open",
+	"python.terminal.executeInFileDir": true,
+	"terminal.external.windowsExec": "C:\\Program Files\\WindowsApps\\Microsoft.WindowsTerminal_1.14.1963.0_x64__8wekyb3d8bbwe\\wt.exe",
+	"redhat.telemetry.enabled": true,
+	"editor.minimap.enabled": false,
+	"git.confirmSync": false,
+	"files.autoSave": "afterDelay",
+	"jupyter.askForKernelRestart": false,
+	"workbench.colorTheme": "Atom One Dark",
+	"editor.accessibilitySupport": "off",
+	"vim.useSystemClipboard": true,
+	"vim.commandLineModeKeyBindings": [],
+	"notebook.lineNumbers": "on",
+	"[python]": {
+		"editor.formatOnType": true,
+		"editor.defaultFormatter": "ms-python.python"
+	},
+	"files.exclude": {
+		"**/.git": false
+	},
+	"vim.cursorStylePerMode.insert": "line",
+	"vim.cursorStylePerMode.normal": "block"
+}
