@@ -24,7 +24,10 @@ font pango:monospace 8
 exec --no-startup-id dex --autostart --environment i3
 
 # Picom compositor
-exec_always --no-startup-id picom -b
+exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
+
+# touchpad gestures
+exec --no-startup-id libinput-gestures-setup start
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -36,7 +39,11 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
-exec --no-startup-id dunst
+
+# dunst notifications
+exec_always --no-startup-id dunst
+
+# pywal
 exec --no-startup-id wal -R
 
 # Use pactl to adjust volume in PulseAudio.
@@ -67,7 +74,9 @@ exec --no-startup-id fcitx -d
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run
+# bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym $mod+d exec dmenu_run -nb "$fg" -nf "$bg" -sb "$bg" -sf "$fg"
+
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -166,9 +175,9 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 # using plasma's logout screen instead of i3's
-bindsym $mod+Shift+e exec --no-startup-id qdbus-qt5 org.kde.ksmserver /KSMServer org.kde.KSMServerInterface.logout -1 -1 -1
+# bindsym $mod+Shift+e exec --no-startup-id qdbus-qt5 org.kde.ksmserver /KSMServer org.kde.KSMServerInterface.logout -1 -1 -1
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -203,10 +212,32 @@ bindsym $mod+Shift+minus move scratchpad
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
 
+# Set colors from Xresources
+# Change 'color7' and 'color2' to whatever colors you want i3 to use
+# from the generated scheme.
+# NOTE: The '#f0f0f0' in the lines below is the color i3 will use if
+# it fails to get colors from Xresources.
+set_from_resource $fg i3wm.color2 #f0f0f0
+set_from_resource $bg i3wm.color0 #f0f0f0
+
+# class                 border  backgr. text indicator child_border
+client.focused          $bg     $bg     $fg  $bg       $bg
+client.focused_inactive $bg     $bg     $fg  $bg       $bg
+client.unfocused        $bg     $bg     $fg  $bg       $bg
+client.urgent           $bg     $bg     $fg  $bg       $bg
+client.placeholder      $bg     $bg     $fg  $bg       $bg
+
+client.background       $bg
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
   status_command i3blocks
+  colors {
+    background $bg
+    statusline $fg
+    separator $fg
+  }
 }
 
 # kill wallpaper
@@ -215,8 +246,8 @@ for_window [title="Desktop @ QRect.*"] kill; floating enable; border none
 for_window [title="Desktop — Plasma"] kill, floating enable, border none
 
 # Set wallpaper with feh
-# exec --no-startup-id feh --bg-scale ~/Documents/wallpaper/japanese-gate-3840x2160.jpg
-exec --no-startup-id feh --bg-scale ~/Pictures/bg/bg.jpg
+exec --no-startup-id feh --bg-scale ~/Pictures/bg/japanese-gate-3840x2160.jpg
+# exec --no-startup-id feh --bg-scale ~/Pictures/bg/bg.jpg
 
 # Plasma compatibility improvements
 for_window [window_role="pop-up"] floating enable
