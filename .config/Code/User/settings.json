@@ -4,17 +4,8 @@
 	"editor.fontLigatures": true,
 	"editor.formatOnPaste": true,
 	"editor.formatOnSave": true,
-	"editor.tabSize": 4,
+	"editor.tabSize": 2,
 	"workbench.editor.highlightModifiedTabs": true,
-	"workbench.colorCustomizations": {
-		"editor.background": "#232627",
-		"sideBar.background": "#232627", // #282c34
-		"activityBar.background": "#232627",
-		"terminalCursor.background": "#fff",
-		"terminalCursor.foreground": "#fff",
-		"editorCursor.background": "#fff",
-		"editorCursor.foreground": "#fff"
-	},
 	"editor.cursorStyle": "block",
 	"editor.cursorBlinking": "solid",
 	"files.trimFinalNewlines": true,
@@ -43,37 +34,30 @@
 	"explorer.confirmDelete": false,
 	"explorer.confirmDragAndDrop": false,
 	"code-runner.runInTerminal": true,
-	"github.copilot.enable": {
-		"*": true,
-		"plaintext": true,
-		"markdown": false,
-		"scminput": false,
-		"yaml": true,
-		"cpp": true,
-		"python": true,
-		"c": true
-	},
 	"terminal.integrated.enableMultiLinePasteWarning": false,
 	"security.workspace.trust.untrustedFiles": "open",
 	"python.terminal.executeInFileDir": true,
-	"terminal.external.windowsExec": "C:\\Program Files\\WindowsApps\\Microsoft.WindowsTerminal_1.14.1963.0_x64__8wekyb3d8bbwe\\wt.exe",
 	"redhat.telemetry.enabled": true,
 	"editor.minimap.enabled": false,
 	"git.confirmSync": false,
-	"files.autoSave": "afterDelay",
 	"jupyter.askForKernelRestart": false,
-	"workbench.colorTheme": "Atom One Dark",
+	"workbench.colorTheme": "Wal",
 	"editor.accessibilitySupport": "off",
 	"vim.useSystemClipboard": true,
 	"vim.commandLineModeKeyBindings": [],
 	"notebook.lineNumbers": "on",
 	"[python]": {
-		"editor.formatOnType": true,
-		"editor.defaultFormatter": "ms-python.python"
+		"editor.formatOnType": true
 	},
 	"files.exclude": {
 		"**/.git": false
 	},
 	"vim.cursorStylePerMode.insert": "line",
-	"vim.cursorStylePerMode.normal": "block"
+	"vim.cursorStylePerMode.normal": "block",
+	"cursor.cpp.disabledLanguages": ["markdown", "scminput"],
+	"terminal.integrated.inheritEnv": false,
+	"cmake.showOptionsMovedNotification": false,
+	"remote.autoForwardPortsSource": "hybrid",
+	"javascript.updateImportsOnFileMove.enabled": "always",
+	"liveServer.settings.donotVerifyTags": true
 }
