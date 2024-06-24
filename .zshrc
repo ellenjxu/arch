@@ -141,18 +141,12 @@ rga-fzf() {
 	xdg-open "$file"
 }
 
-alias copilot="gh copilot"
-alias gcs="gh copilot suggest"
-alias gce="gh copilot explain"
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export PATH=$PATH:/home/ellen/.nvm/versions/node/v21.6.0/bin/bw
-
 export PATH=$PATH:$HOME/.fly/bin
-
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 # export MUJOCO_PY_MUJOCO_PATH=/home/ellen/Applications/mujoco-3.1.4
@@ -161,3 +155,5 @@ export PATH=$PATH:$HOME/Applications/cmake-3.29.2-linux-x86_64/bin
 export PATH=$PATH:$HOME/Applications/emsdk:$HOME/Applications/emsdk/upstream/emscripten
 
 alias zathura=~/.local/bin/zathura
+
+[ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
