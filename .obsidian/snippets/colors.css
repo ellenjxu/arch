@@ -1,0 +1,25 @@
+/* custom wal theme for bg */
+.theme-dark {
+    --background-primary: #031621;
+    --background-secondary: #031621;
+    --background-secondary: var(--background-primary);
+    --background-modifier-border: var(--background-primary);
+    --background-modifier-hover: var(--background-primary);
+    --background-modifier-active: var(--background-primary);
+    --background-modifier-selected: var(--background-primary);
+    --background-secondary-alt: var(--background-primary);
+    --background-overlay: var(--background-primary);
+}
+
+.theme-dark {
+    background-color: var(--background-primary);
+}
+
+.theme-dark .workspace, 
+.theme-dark .workspace-split, 
+.theme-dark .workspace-tab-header-container,
+.theme-dark .markdown-preview-view,
+.theme-dark .markdown-source-view,
+.theme-dark .sidebar {
+    background-color: var(--background-primary) !important;
+} 
