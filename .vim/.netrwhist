@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =4
+let g:netrw_dirhist_4='/home/ellen/code/*/cs227a/.git'
+let g:netrw_dirhist_3='/home/ellen/code/*/cs227a/notes'
+let g:netrw_dirhist_2='/home/ellen/code/master/blog/_posts'
+let g:netrw_dirhist_1='/home/ellen/code/master/blog/drafts'
+let g:netrw_dirhist_0='/home/ellen/code/master/blog'
+let g:netrw_dirhist_9='/home/ellen/code/master/blog/_posts'
+let g:netrw_dirhist_8='/home/ellen/code/master/blog'
+let g:netrw_dirhist_7='/home/ellen/code/master/blog/_posts'
+let g:netrw_dirhist_6='/home/ellen/code/*/ee227/hw5/tex'
+let g:netrw_dirhist_5='/home/ellen/Documents/notes/math171-analysis/hw7'
